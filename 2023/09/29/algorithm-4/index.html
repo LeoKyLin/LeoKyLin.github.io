@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang=zh-CN>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta property="og:description" content="coding makes me happy">
+    <meta property="og:type" content="website">
+    <meta name="description" content="coding makes me happy">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        每日一题第四天 - KyLin&#39;s Blog
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_28hi1hpxx24.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+
+    
+
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> Stick with something </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/img/avatar.jpg" />
+        </div>
+        <div class="name">
+            <i>一只又菜又焦虑的dog(❁´◡`❁)</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>主页</span>
+                </a>
+            </li>
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>标签</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>存档</span>
+                </a>
+            </li>
+            <li >
+                <a href="/collect/">
+                    <i class="iconfont icon-shoucang1"></i>
+                    <span>收藏</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>关于</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Leetcode-605-%E7%A7%8D%E8%8A%B1%E9%97%AE%E9%A2%98"><span class="toc-text">Leetcode-605. 种花问题</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%89%AB%E6%8F%8F%E6%B3%95%EF%BC%9A"><span class="toc-text">扫描法：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E5%AD%A6%E8%AE%A1%E7%AE%97%E6%B3%95%EF%BC%9A"><span class="toc-text">数学计算法：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%90%8E%E8%AE%B0"><span class="toc-text">后记</span></a></li></ol></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-bg" id="search-bg"></div>
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">搜索</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> Stick with something </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        每日一题第四天
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">发布于：<span>2023-09-29 17:29:59</span></span>
+        
+        <span class="attr">标签：/
+        
+        <a class="tag" href="/tags/#leetcode" title="leetcode">leetcode</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">访问：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <h1 id="Leetcode-605-种花问题"><a href="#Leetcode-605-种花问题" class="headerlink" title="Leetcode-605. 种花问题"></a>Leetcode-605. <a target="_blank" rel="noopener" href="https://leetcode.cn/problems/can-place-flowers/?envType=daily-question&envId=2023-09-29">种花问题</a></h1><p>简单分析一下题意，给定一个数组（flowers）与给定的要操作的次数（n）,只有当当前位置周围都没有花时才能往这个地方插入花，如：<br></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入：flowerbed = [<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>], n = <span class="number">1</span></span><br><span class="line">输出：<span class="literal">true</span></span><br><span class="line">我们可以往flowers[<span class="number">2</span>]这个位置插入花来满足题意</span><br></pre></td></tr></table></figure>
+<h2 id="扫描法："><a href="#扫描法：" class="headerlink" title="扫描法："></a>扫描法：</h2><p>很容易可知，我们要判断的就只是三个格子的情况。我们以i为插入点，那么只需要判断i+1与i-1这两处下标是否有花，如果都为0，说明可以插。于是有：<br></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (flowerbed[i] == <span class="number">0</span> &amp;&amp; flowerbed[i - <span class="number">1</span>] == <span class="number">0</span> &amp;&amp; flowerbed[i + <span class="number">1</span>] == <span class="number">0</span>)</span><br></pre></td></tr></table></figure>
+<p>但这样的话开头与结尾会出现越界的问题。我们可以扩展数组的范围：在给定的数组的开头与结尾加入0，在插花的时候不管这俩个元素，只是在判断的时候使用，0[0,0,0]0,这样在边界的时候我们也可以用上述判断方法。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">bool</span> <span class="title">canPlaceFlowers</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; flowerbed, <span class="type">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (n == <span class="number">0</span>) &#123; <span class="keyword">return</span> <span class="literal">true</span>; &#125; </span><br><span class="line">        flowerbed.<span class="built_in">insert</span>(flowerbed.<span class="built_in">begin</span>(), <span class="number">0</span>);      </span><br><span class="line">        flowerbed.<span class="built_in">push_back</span>(<span class="number">0</span>);</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt; flowerbed.<span class="built_in">size</span>() - <span class="number">1</span>; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (flowerbed[i] == <span class="number">0</span> &amp;&amp; flowerbed[i - <span class="number">1</span>] == <span class="number">0</span> &amp;&amp; flowerbed[i + <span class="number">1</span>] == <span class="number">0</span>) &#123;</span><br><span class="line">                flowerbed[i] = <span class="number">1</span>;</span><br><span class="line">                n--;</span><br><span class="line">                <span class="keyword">if</span> (n == <span class="number">0</span>) &#123;</span><br><span class="line">                    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="数学计算法："><a href="#数学计算法：" class="headerlink" title="数学计算法："></a>数学计算法：</h2><p>根据对结果的观察，我们可以得出如下结果：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">当有1，2个位置时：可以种0个花；</span><br><span class="line">当有3，4个位置时：可以种1个花；</span><br><span class="line">当有5，6个位置时：可以种2个花；</span><br><span class="line">当有7，8个位置时：可以种3个花；</span><br></pre></td></tr></table></figure>
+<p>我们的思路如下：用两个指针扫描数组，一个保存上一次找到的花的位置（i），一个标志现在找到的花的位置（j）。根据观察可知（自己去想一下为什么是这个公式，放假了(●’◡’●)）：(j-i-2)&#x2F;2—–&gt;根据距离得出花数的公式。对于边界的处理与法一一样，先将i置为-1表示还没有找到花，j从flowers[0]遍历,找到后将公式计算，然后用i保存j继续移动。对于最后的0,0,0]0.因为我们之前的公式是根据i,j都指向1时使用的，而遍历到最后j指向的是0，所以公式需要改变一下：(j-i-1)&#x2F;2（自己去想）。代码如下：<br></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">bool</span> <span class="title">canPlaceFlowers</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; flowerbed, <span class="type">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (n == <span class="number">0</span>) &#123; <span class="keyword">return</span> <span class="literal">true</span>; &#125; </span><br><span class="line">        flowerbed.<span class="built_in">insert</span>(flowerbed.<span class="built_in">begin</span>(), <span class="number">0</span>);      </span><br><span class="line">        flowerbed.<span class="built_in">push_back</span>(<span class="number">0</span>);</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">-1</span>,j = <span class="number">0</span>; j &lt; flowerbed.<span class="built_in">size</span>();j++) &#123;</span><br><span class="line">            <span class="keyword">if</span>(flowerbed[j] == <span class="number">1</span>) &#123;</span><br><span class="line">                n -= <span class="built_in">max</span>((j-i<span class="number">-2</span>)/<span class="number">2</span>,<span class="number">0</span>);</span><br><span class="line">                i = j;</span><br><span class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span>(j == flowerbed.<span class="built_in">size</span>()<span class="number">-1</span>) &#123;</span><br><span class="line">                n -= <span class="built_in">max</span>((j-i<span class="number">-1</span>)/<span class="number">2</span>,<span class="number">0</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> n&lt;=<span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h2><p>脑子好乱，写博客的时候感觉头好晕，不知道从哪里下笔，可能是感冒引起的，但我这写博客的水平确实有待提高。昨天的题解还没写ಥ_ಥ，有点难度，对我这样的菜鸡还是超前了些，会尽快补充。</p>
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+        <div id="lv-container"></div>
+        <div class="giscus"></div>
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        
+
+        
+
+        
+
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        Created By <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>  Theme <a target="_blank" rel="noopener" href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = ""
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+
+</html>

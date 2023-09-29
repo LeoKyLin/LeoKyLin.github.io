@@ -104,7 +104,7 @@
     </div>
     
         <div id="toc" class="toc-article">
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Leetcode-2582-%E9%80%92%E6%9E%95%E5%A4%B4"><span class="toc-text">Leetcode-2582. 递枕头</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%80%E7%AE%80%E5%8D%95%E7%9A%84%E8%A7%A3%E6%B3%95"><span class="toc-text">最简单的解法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A8%8D%E5%BE%AE%E6%9C%89%E7%82%B9%E8%84%91%E5%AD%90%E7%9A%84%E8%A7%A3%E6%B3%95"><span class="toc-text">稍微有点脑子的解法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%90%8E%E8%AE%B0"><span class="toc-text">后记</span></a></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Leetcode-2251-%E8%8A%B1%E6%9C%9F%E5%86%85%E8%8A%B1%E7%9A%84%E6%95%B0%E7%9B%AE"><span class="toc-text">Leetcode-2251. 花期内花的数目</span></a></li></ol>
 </div>
     
 </div>
@@ -140,7 +140,7 @@
     </div>
 
     <div class="post-meta">
-        <span class="attr">发布于：<span>2023-09-26 20:28:58</span></span>
+        <span class="attr">发布于：<span>2023-09-29 17:28:11</span></span>
         
         <span class="attr">标签：/
         
@@ -154,12 +154,7 @@
 </span>
     </div>
     <div class="post-content ">
-        <h1 id="Leetcode-2582-递枕头"><a href="#Leetcode-2582-递枕头" class="headerlink" title="Leetcode-2582. 递枕头"></a>Leetcode-2582. <a target="_blank" rel="noopener" href="https://leetcode.cn/problems/pass-the-pillow/description/">递枕头</a></h1><p>这是一道简单的问题，大概翻译一下题目意思：<br><br>就是将一块手帕从1传到给定的值n,当传到n时再递减回去，一直循环直到 最后走到给定的步数停下。  </p>
-<h2 id="最简单的解法"><a href="#最简单的解法" class="headerlink" title="最简单的解法"></a>最简单的解法</h2><p>拿到题目的第一眼最自然的想法应该就是模拟暴力吧。先按照题意增，当到n时减，一直循环下去。这种解法很简单，代码也很容易写出来。</p>
-<h2 id="稍微有点脑子的解法"><a href="#稍微有点脑子的解法" class="headerlink" title="稍微有点脑子的解法"></a>稍微有点脑子的解法</h2><p>我们仔细想一想从1到n,再从n到1，经历过这样的一个循环之后又回到了原点，再分析可知没经过n<em>2-2步之后就会回到原点。所以我们可以用time%(n</em>2-2)来省去之前的循环只保留有用的最后一次。<br><br>之后我们还要确定是落在递减还是递增的那一段。<br><br><img src="D:\picture of blog\algorithm-1(1).jpg" alt="图片alt" title="图片title"><br><br>用time%(n*2-2)得到的余数(remainder)来确定是在哪一段区域.Remainder&#x2F;(n-1)用这个式子来判断在哪一段，n-1就是循环的一半。如果为1，那么落在后半段应该从n递减，如果为0，那么就落在前半段，从1开始递加。<br><br>完整代码：<br></p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">passThePillow</span><span class="params">(<span class="type">int</span> n, <span class="type">int</span> time)</span> </span>&#123;    </span><br><span class="line">        <span class="type">int</span> Remainder = time%(n*<span class="number">2</span><span class="number">-2</span>);</span><br><span class="line">        <span class="type">int</span> step = Remainder%(n<span class="number">-1</span>);</span><br><span class="line">        <span class="keyword">if</span>(Remainder/(n<span class="number">-1</span>)==<span class="number">1</span>)&#123; <span class="comment">//从递减开始</span></span><br><span class="line">            <span class="keyword">return</span> n-step;</span><br><span class="line">        &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">1</span>+step;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<h2 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h2><p>这是我第一次写题目解析，可能有很多的问题，希望大家多多包容，以后我也会尽量每天发布题目解析，也会不断提高自己解题的水平。</p>
-
+        <h1 id="Leetcode-2251-花期内花的数目"><a href="#Leetcode-2251-花期内花的数目" class="headerlink" title="Leetcode-2251. 花期内花的数目"></a>Leetcode-2251. <a target="_blank" rel="noopener" href="https://leetcode.cn/problems/number-of-flowers-in-full-bloom/?envType=daily-question&envId=2023-09-29">花期内花的数目</a></h1>
         
         <br />
         <div id="comment-container">
