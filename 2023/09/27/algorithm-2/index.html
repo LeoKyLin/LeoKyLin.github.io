@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang=zh-CN>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta property="og:description" content="coding makes me happy">
+    <meta property="og:type" content="website">
+    <meta name="description" content="coding makes me happy">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        【每日一题】餐厅过滤器 - KyLin&#39;s Blog
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_28hi1hpxx24.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+
+    
+
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> Stick with something </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/img/avatar.jpg" />
+        </div>
+        <div class="name">
+            <i>一只又菜又焦虑的dog(❁´◡`❁)</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>主页</span>
+                </a>
+            </li>
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>标签</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>存档</span>
+                </a>
+            </li>
+            <li >
+                <a href="/collect/">
+                    <i class="iconfont icon-shoucang1"></i>
+                    <span>收藏</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>关于</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Leetcode-1333-%E9%A4%90%E5%8E%85%E8%BF%87%E6%BB%A4%E5%99%A8"><span class="toc-text">Leetcode-1333. 餐厅过滤器</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A2%98%E8%A7%A3%EF%BC%9A"><span class="toc-text">题解：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%90%8E%E8%AE%B0"><span class="toc-text">后记</span></a></li></ol></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-bg" id="search-bg"></div>
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">搜索</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> Stick with something </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        【每日一题】餐厅过滤器
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">发布于：<span>2023-09-27 20:42:42</span></span>
+        
+        <span class="attr">标签：/
+        
+        <a class="tag" href="/tags/#leetcode" title="leetcode">leetcode</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">访问：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <h1 id="Leetcode-1333-餐厅过滤器"><a href="#Leetcode-1333-餐厅过滤器" class="headerlink" title="Leetcode-1333. 餐厅过滤器"></a>Leetcode-1333. <a target="_blank" rel="noopener" href="https://leetcode.cn/problems/pass-the-pillow/description/">餐厅过滤器</a></h1><p>先翻译一下题目意思：给你一个列表（restaurants），里面的元素也是列表（restaurant[i]）,里面的的参数有[0.id],[1.rate],[2.veganFriendly],[3.maxPrice],[4.maxDistance],id和rate都是与输出结果相关的东西，而veganFriendly是筛选是否吃素的餐厅（为0表示不止吃素，为1表示只吃素！！！），maxPrice表示餐厅的最大价格，maxDistance表示餐厅的最大距离。</p>
+<h2 id="题解："><a href="#题解：" class="headerlink" title="题解："></a>题解：</h2><p>很容易想到先排序再根据题目要求将对应的餐厅选出来，于是就出现了一个问题：对vector进行自定义排序。<br><br>一般来说我们使用sort()都是sort(begin,end)。但是它还有第三个参数sort(begin,end，cmp);后面这个参数就是用来自定义排序方法的，在这里由于篇幅问题只简单讲解一下怎么使用<br></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">bool</span> <span class="title">cmp</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; restaurant1,vector&lt;<span class="type">int</span>&gt;&amp; restaurant2)</span></span>&#123;</span><br><span class="line">	<span class="comment">//这里面自定义排序方式，如我们这道题当中要求rate从高到低排序，如果相同，则从高到低排序</span></span><br><span class="line">    <span class="keyword">if</span>(restaurant1[<span class="number">1</span>]==restaurant2[<span class="number">1</span>])&#123;        </span><br><span class="line">        <span class="keyword">return</span> restaurant1[<span class="number">0</span>]&gt;restaurant2[<span class="number">0</span>]; <span class="comment">//这样表示从高到低排序，从低到高用小于</span></span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> restaurant1[<span class="number">1</span>]&gt;restaurant2[<span class="number">1</span>];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>然后就很简单了，将排好序的restaurants比较判断,直接上代码</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">bool</span> <span class="title">Descendingsort</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; restaurant1,vector&lt;<span class="type">int</span>&gt;&amp; restaurant2)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> restaurant1[<span class="number">1</span>]==restaurant2[<span class="number">1</span>]?restaurant1[<span class="number">0</span>]&gt;restaurant2[<span class="number">0</span>]:restaurant1[<span class="number">1</span>]&gt;restaurant2[<span class="number">1</span>];</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    </span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">filterRestaurants</span><span class="params">(vector&lt;vector&lt;<span class="type">int</span>&gt;&gt;&amp; restaurants, <span class="type">int</span> veganFriendly, <span class="type">int</span> maxPrice, <span class="type">int</span> maxDistance)</span> </span>&#123;</span><br><span class="line">        vector&lt;<span class="type">int</span>&gt; res;</span><br><span class="line">        <span class="built_in">sort</span>(restaurants.<span class="built_in">begin</span>(),restaurants.<span class="built_in">end</span>(),Descendingsort);</span><br><span class="line">        <span class="keyword">for</span>(vector&lt;<span class="type">int</span>&gt; restaurant:restaurants) &#123;</span><br><span class="line">            <span class="keyword">if</span>(veganFriendly&lt;=restaurant[<span class="number">2</span>]&amp;&amp;restaurant[<span class="number">3</span>]&lt;=maxPrice&amp;&amp;restaurant[<span class="number">4</span>]&lt;=maxDistance) &#123;</span><br><span class="line">               res.<span class="built_in">push_back</span>(restaurant[<span class="number">0</span>]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>这里有一个注意的点：veganFriendly&lt;&#x3D;restaurant[2]这个判断条件是判断是否吃素的筛选。如果veganFriendly&#x3D;&#x3D;0，说明不挑，都可以，那餐厅为0or1都行；如果veganFriendly&#x3D;&#x3D;1，说明只吃素，那餐厅只能为1。总结一下就是只有veganFriendly&#x3D;&#x3D;1&amp;&amp;restaurant[2]&#x3D;&#x3D;0不满足条件，而不是要veganFriendly&#x3D;&#x3D;restaurant[2]才行。所以可得veganFriendly&lt;&#x3D;restaurant[2]满足条件。</p>
+<h2 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h2><p>这是中等题？？？Leetcode能不能长点心，把你那分级好好做一下。</p>
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+        <div id="lv-container"></div>
+        <div class="giscus"></div>
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        
+
+        
+
+        
+
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        Created By <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>  Theme <a target="_blank" rel="noopener" href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = ""
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+
+</html>
