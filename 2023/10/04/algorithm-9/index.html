@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang=zh-CN>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta property="og:description" content="coding makes me happy">
+    <meta property="og:type" content="website">
+    <meta name="description" content="coding makes me happy">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        【每日一题】买卖股票的最佳时机IV - KyLin&#39;s Blog
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_28hi1hpxx24.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+
+    
+
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> Stick with something </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/img/avatar.jpg" />
+        </div>
+        <div class="name">
+            <i>一只又菜又焦虑的dog(❁´◡`❁)</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>主页</span>
+                </a>
+            </li>
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>标签</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>存档</span>
+                </a>
+            </li>
+            <li >
+                <a href="/collect/">
+                    <i class="iconfont icon-shoucang1"></i>
+                    <span>收藏</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>关于</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Leetcode-188-%E4%B9%B0%E5%8D%96%E8%82%A1%E7%A5%A8%E7%9A%84%E6%9C%80%E4%BD%B3%E6%97%B6%E6%9C%BAIV"><span class="toc-text">Leetcode-188.买卖股票的最佳时机IV</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%EF%BC%9A"><span class="toc-text">动态规划：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BC%98%E5%8C%96%EF%BC%9A"><span class="toc-text">优化：</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%90%8E%E8%AE%B0%EF%BC%9A"><span class="toc-text">后记：</span></a></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-bg" id="search-bg"></div>
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">搜索</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> Stick with something </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        【每日一题】买卖股票的最佳时机IV
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">发布于：<span>2023-10-04 23:23:21</span></span>
+        
+        <span class="attr">标签：/
+        
+        <a class="tag" href="/tags/#leetcode" title="leetcode">leetcode</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">访问：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <h1 id="Leetcode-188-买卖股票的最佳时机IV"><a href="#Leetcode-188-买卖股票的最佳时机IV" class="headerlink" title="Leetcode-188.买卖股票的最佳时机IV"></a>Leetcode-188.<a target="_blank" rel="noopener" href="https://leetcode.cn/problems/best-time-to-buy-and-sell-stock-iv/description/">买卖股票的最佳时机IV</a></h1><p>这道题与昨天的<a target="_blank" rel="noopener" href="https://leetcode.cn/problems/best-time-to-buy-and-sell-stock-iii/">Leetcode-122.买卖股票的最佳时机III</a>相似，可以看看昨天的这个<a target="_blank" rel="noopener" href="http://lqlblog.cn/2023/10/03/algorithm-8/">题解</a>;题目与昨天的相似，只不过这次不固定次数，而是根据给出的k来判断。</p>
+<h2 id="动态规划："><a href="#动态规划：" class="headerlink" title="动态规划："></a>动态规划：</h2><p>先来看看昨天的题目状态转化：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">1.买了第一支股票（x1） x1 = max(x1, -prices[i]);</span><br><span class="line">2.卖出第一支股票 (y1)  y1 = max(y1, x1 + prices[i]);</span><br><span class="line">3.买入第二支股票 (x2)  x2 = max(x2, y1 - prices[i]);</span><br><span class="line">4.卖出第二支股票 (y2)  y2 = max(y2, x2 + prices[i]);</span><br></pre></td></tr></table></figure>
+<p>可以看到这里的x1,y1,x2,y2都与之前的状态有关；这里自然想到动态规划，一步一步递推。那我们怎么表示各个状态呢？我是想到了最经典的动态规划问题：01背包；我们用buy[i][j]来表示在有i支股票可选且第j次买入股票后的最优解；用sell[i][j]来表示在有i支股票可选且第j次卖出股票后的最优解；（这里的i,j是不是有点像背包问题中的有i个物品，j重量的情况）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">//buy[i][j]表示在有i支股票可选且第j次买入股票,它的可能有两种情况：1.不用买入新添加的股票即与buy[i-1][j]的情况相同。2.要买入新股票，则之前没有股票（题目要求，要买一张卖一张才能重新买）对应sell[i-1][j] - prices[i];</span><br><span class="line"></span><br><span class="line">buy[i][j] = max(buy[i-1][j],sell[i-1][j]-prices[i]);</span><br><span class="line"></span><br><span class="line">//sell[i][j]表示在有i支股票可选且第j次卖出股票,它的可能有两种情况：1.不用卖出新添加的股票即与sell[i-1][j]的情况相同。2.要卖出新股票，则之前买入新股票，对应buy[i-1][j-1]+prices[i];</span><br><span class="line"></span><br><span class="line">sell[i][j] = max(sell[i-1][j],buy[i-1][j-1]+prices[i]);</span><br></pre></td></tr></table></figure>
+<p>再考虑边界，buy[0][1]，sell[0][1]······buy[0][k-1]，sell[0][k-1]，因为不能表示只有price[0]这一张票的情况下能卖出2，3，4，5，6，4，5，6，7···张（因为用buy[i][0]表示卖出一张，所以buy[0][1]表示卖出两张，以此类推），所以将它设为边界;buy[0][i] &#x3D; sell[0][i] &#x3D; INT_MIN ;<br>代码：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">maxProfit</span><span class="params">(<span class="type">int</span> k, vector&lt;<span class="type">int</span>&gt;&amp; prices)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> n = prices.<span class="built_in">size</span>();</span><br><span class="line">        vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; <span class="built_in">buy</span>(n, <span class="built_in">vector</span>&lt;<span class="type">int</span>&gt;(k + <span class="number">1</span>));</span><br><span class="line">        vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; <span class="built_in">sell</span>(n, <span class="built_in">vector</span>&lt;<span class="type">int</span>&gt;(k + <span class="number">1</span>));</span><br><span class="line">        buy[<span class="number">0</span>][<span class="number">0</span>] = -prices[<span class="number">0</span>];</span><br><span class="line">        sell[<span class="number">0</span>][<span class="number">0</span>] = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= k; ++i) &#123;</span><br><span class="line">            buy[<span class="number">0</span>][i] = sell[<span class="number">0</span>][i] = INT_MIN/<span class="number">2</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt; n;i++) &#123;</span><br><span class="line">            buy[i][<span class="number">0</span>] = <span class="built_in">max</span>(buy[i<span class="number">-1</span>][<span class="number">0</span>],sell[i<span class="number">-1</span>][<span class="number">0</span>]-prices[i]);</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> j = <span class="number">1</span>; j &lt;= k;j++) &#123;</span><br><span class="line">                buy[i][j] = <span class="built_in">max</span>(buy[i<span class="number">-1</span>][j],sell[i<span class="number">-1</span>][j]-prices[i]);</span><br><span class="line">                sell[i][j] = <span class="built_in">max</span>(sell[i<span class="number">-1</span>][j],buy[i<span class="number">-1</span>][j<span class="number">-1</span>]+prices[i]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> *<span class="built_in">max_element</span>(sell[n - <span class="number">1</span>].<span class="built_in">begin</span>(), sell[n - <span class="number">1</span>].<span class="built_in">end</span>());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="优化："><a href="#优化：" class="headerlink" title="优化："></a>优化：</h2><p>这里的buy,sell当中几乎都被用来存储之前的状态，而我们计算现在的状态也只是根据最近的状态来计算，这意味着之前的状态没有用；<br><br>所以：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">maxProfit</span><span class="params">(<span class="type">int</span> k, vector&lt;<span class="type">int</span>&gt;&amp; prices)</span> </span>&#123;</span><br><span class="line">        k = <span class="built_in">min</span>&lt;<span class="type">int</span>&gt;(k, prices.<span class="built_in">size</span>() / <span class="number">2</span>) + <span class="number">1</span>;</span><br><span class="line">        <span class="function">vector <span class="title">buy</span><span class="params">(k, INT_MIN)</span>, <span class="title">sel</span><span class="params">(k, <span class="number">0</span>)</span></span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i : prices) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">1</span>; j &lt; k; j++) &#123;</span><br><span class="line">                buy[j] = <span class="built_in">max</span>(buy[j], sel[j - <span class="number">1</span>] - i);</span><br><span class="line">                sel[j] = <span class="built_in">max</span>(sel[j], buy[j] + i);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> sel.<span class="built_in">back</span>();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h1 id="后记："><a href="#后记：" class="headerlink" title="后记："></a>后记：</h1><p>其实今天的题目我也懵了，不会做；最后还是看的解析<a target="_blank" rel="noopener" href="https://leetcode.cn/problems/best-time-to-buy-and-sell-stock-iv/solutions/537731/mai-mai-gu-piao-de-zui-jia-shi-ji-iv-by-8xtkp/">1</a> 。</p>
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+        <div id="lv-container"></div>
+        <div class="giscus"></div>
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        
+
+        
+
+        
+
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        Created By <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>  Theme <a target="_blank" rel="noopener" href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = ""
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+
+</html>
