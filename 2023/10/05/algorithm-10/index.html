@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang=zh-CN>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta property="og:description" content="coding makes me happy">
+    <meta property="og:type" content="website">
+    <meta name="description" content="coding makes me happy">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        【每日一题】买卖股票的最佳时机含冷冻期 - KyLin&#39;s Blog
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_28hi1hpxx24.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+
+    
+
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> Stick with something </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar ">
+            <img src="/img/avatar.jpg" />
+        </div>
+        <div class="name">
+            <i>一只又菜又焦虑的dog(❁´◡`❁)</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>主页</span>
+                </a>
+            </li>
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>标签</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>存档</span>
+                </a>
+            </li>
+            <li >
+                <a href="/collect/">
+                    <i class="iconfont icon-shoucang1"></i>
+                    <span>收藏</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>关于</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Leetcode-309-%E4%B9%B0%E5%8D%96%E8%82%A1%E7%A5%A8%E7%9A%84%E6%9C%80%E4%BD%B3%E6%97%B6%E6%9C%BA%E5%90%AB%E5%86%B7%E5%86%BB%E6%9C%9F"><span class="toc-text">Leetcode-309.买卖股票的最佳时机含冷冻期</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%EF%BC%9A"><span class="toc-text">动态规划：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A9%BA%E9%97%B4%E4%BC%98%E5%8C%96%EF%BC%9A"><span class="toc-text">空间优化：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%90%8E%E8%AE%B0%EF%BC%9A"><span class="toc-text">后记：</span></a></li></ol></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-bg" id="search-bg"></div>
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">搜索</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> Stick with something </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        【每日一题】买卖股票的最佳时机含冷冻期
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">发布于：<span>2023-10-05 17:36:36</span></span>
+        
+        <span class="attr">标签：/
+        
+        <a class="tag" href="/tags/#leetcode" title="leetcode">leetcode</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">访问：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <h1 id="Leetcode-309-买卖股票的最佳时机含冷冻期"><a href="#Leetcode-309-买卖股票的最佳时机含冷冻期" class="headerlink" title="Leetcode-309.买卖股票的最佳时机含冷冻期"></a>Leetcode-309.<a target="_blank" rel="noopener" href="https://leetcode.cn/problems/best-time-to-buy-and-sell-stock-with-cooldown/description/">买卖股票的最佳时机含冷冻期</a></h1><p>这道题在<a target="_blank" rel="noopener" href="https://leetcode.cn/problems/best-time-to-buy-and-sell-stock-iv/description/">昨天的这道题</a>之上做了一些修改,规定了卖出了一次股票后要等一天才能再次购买.具体可以看一下昨天的<a target="_blank" rel="noopener" href="http://lqlblog.cn/2023/10/04/algorithm-9/">题解</a>，</p>
+<h2 id="动态规划："><a href="#动态规划：" class="headerlink" title="动态规划："></a>动态规划：</h2><p>同样的想到动态规划</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">可以看出有一下这些状态：</span><br><span class="line">到第i天手里有一只股票；（设为dp[i][<span class="number">0</span>]）</span><br><span class="line">到第i天手里没有股票且不在冷却期；（设为dp[i][<span class="number">1</span>]）</span><br><span class="line">到第i天手里没有股票且在冷却期；（设为dp[i][<span class="number">2</span>]）</span><br></pre></td></tr></table></figure>
+<p>对于第一种状态：手里有一支股票，可以由两种情况得到：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1.第i天没买入股票，说明在前i-1天买入了股票</span><br><span class="line">2.第i-1天没股票，说明在第i天买入股票；</span><br><span class="line">所以 dp[i][0] = max(dp[i-1][0],dp[i-1][1]-price[i]);</span><br></pre></td></tr></table></figure>
+<p>对于第二种状态：手里没有股票，且不在冷却期,可以由两种情况得到：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1.第i-1天也不在冷却期手里没有股票</span><br><span class="line">2.第i-1天在冷却期手里没有股票；</span><br><span class="line">所以 dp[i][1] = max(dp[i-1][1],dp[i-1][2]);</span><br></pre></td></tr></table></figure>
+<p>对于第三种状态：手里没有股票，在冷却期,只可能由一种情况得到：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">1.在第i-1天进行了交易；</span><br><span class="line">dp[i][2] = max(dp[i-1][0]+price[i]);</span><br></pre></td></tr></table></figure>
+<p>然后是起始问题：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">dp[0][0] = -price[0]//表示买了一支股票就是price[0];</span><br><span class="line">dp[0][1] = 0        //没有交易，也就没有利润</span><br><span class="line">dp[0][2] = 0        //没有交易，也就没有利润</span><br></pre></td></tr></table></figure>
+<p>代码：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">maxProfit</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; prices)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> n = prices.<span class="built_in">size</span>();</span><br><span class="line">        <span class="type">int</span> dp[n][<span class="number">3</span>];</span><br><span class="line">        dp[<span class="number">0</span>][<span class="number">0</span>] = -prices[<span class="number">0</span>];</span><br><span class="line">        dp[<span class="number">0</span>][<span class="number">1</span>] = <span class="number">0</span>;</span><br><span class="line">        dp[<span class="number">0</span>][<span class="number">2</span>] = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i&lt; n;i++) &#123;</span><br><span class="line">            dp[i][<span class="number">0</span>] = <span class="built_in">max</span>(dp[i<span class="number">-1</span>][<span class="number">0</span>],dp[i<span class="number">-1</span>][<span class="number">1</span>]-prices[i]);</span><br><span class="line">            dp[i][<span class="number">1</span>] = <span class="built_in">max</span>(dp[i<span class="number">-1</span>][<span class="number">1</span>],dp[i<span class="number">-1</span>][<span class="number">2</span>]);</span><br><span class="line">            dp[i][<span class="number">2</span>] = dp[i<span class="number">-1</span>][<span class="number">0</span>]+prices[i];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">max</span>(dp[n<span class="number">-1</span>][<span class="number">1</span>],dp[n<span class="number">-1</span>][<span class="number">2</span>]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="空间优化："><a href="#空间优化：" class="headerlink" title="空间优化："></a>空间优化：</h2><p>从代码中可以看到，只用了dp[i-1][]与dp[i][]这两种状态，所以可以只用两个状态dp[0][] dp[1][]来表示两个状态<br>代码：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">maxProfit</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; prices)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> n = prices.<span class="built_in">size</span>();</span><br><span class="line">        <span class="type">int</span> dp[<span class="number">2</span>][<span class="number">3</span>];</span><br><span class="line">        dp[<span class="number">0</span>][<span class="number">0</span>] = -prices[<span class="number">0</span>]; </span><br><span class="line">        dp[<span class="number">0</span>][<span class="number">1</span>] = <span class="number">0</span>;</span><br><span class="line">        dp[<span class="number">0</span>][<span class="number">2</span>] = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i&lt; n;i++) &#123;</span><br><span class="line">            dp[<span class="number">1</span>][<span class="number">0</span>] = <span class="built_in">max</span>(dp[<span class="number">0</span>][<span class="number">0</span>],dp[<span class="number">0</span>][<span class="number">1</span>]-prices[i]);</span><br><span class="line">            dp[<span class="number">1</span>][<span class="number">1</span>] = <span class="built_in">max</span>(dp[<span class="number">0</span>][<span class="number">1</span>],dp[<span class="number">0</span>][<span class="number">2</span>]);</span><br><span class="line">            dp[<span class="number">1</span>][<span class="number">2</span>] = dp[<span class="number">0</span>][<span class="number">0</span>]+prices[i];</span><br><span class="line"></span><br><span class="line">            dp[<span class="number">0</span>][<span class="number">0</span>] = dp[<span class="number">1</span>][<span class="number">0</span>];</span><br><span class="line">            dp[<span class="number">0</span>][<span class="number">1</span>] = dp[<span class="number">1</span>][<span class="number">1</span>];</span><br><span class="line">            dp[<span class="number">0</span>][<span class="number">2</span>] = dp[<span class="number">1</span>][<span class="number">2</span>];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">max</span>(dp[<span class="number">1</span>][<span class="number">1</span>],dp[<span class="number">1</span>][<span class="number">2</span>]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="后记："><a href="#后记：" class="headerlink" title="后记："></a>后记：</h2><p>今天的题还是有点不会；看来解析才做出来，不过优化是自己想的(^&#x2F;&#x2F;&#x2F;^)，话说优化了时间变长了，空间占用没怎么变是说明意思？？？再猜一手明天的<a target="_blank" rel="noopener" href="https://leetcode.cn/problems/best-time-to-buy-and-sell-stock-with-transaction-fee/">题目</a>.</p>
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+        <div id="lv-container"></div>
+        <div class="giscus"></div>
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        
+
+        
+
+        
+
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        Created By <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>  Theme <a target="_blank" rel="noopener" href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = ""
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+
+</html>
