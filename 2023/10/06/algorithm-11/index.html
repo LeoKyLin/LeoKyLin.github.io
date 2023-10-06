@@ -12,7 +12,7 @@
 
     <title>
         
-        c - KyLin&#39;s Blog
+        【每日一题】买卖股票的最佳时机含手续费 - KyLin&#39;s Blog
         
     </title>
 
@@ -104,7 +104,7 @@
     </div>
     
         <div id="toc" class="toc-article">
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Leetcode-122-%E4%B9%B0%E5%8D%96%E8%82%A1%E7%A5%A8%E7%9A%84%E6%9C%80%E4%BD%B3%E6%97%B6%E6%9C%BAII"><span class="toc-text">Leetcode-122.买卖股票的最佳时机II</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%EF%BC%9A"><span class="toc-text">动态规划：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B4%AA%E5%BF%83%EF%BC%9A"><span class="toc-text">贪心：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%90%8E%E8%AE%B0%EF%BC%9A"><span class="toc-text">后记：</span></a></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Leetcode-714-%E4%B9%B0%E5%8D%96%E8%82%A1%E7%A5%A8%E7%9A%84%E6%9C%80%E4%BD%B3%E6%97%B6%E6%9C%BA%E5%90%AB%E6%89%8B%E7%BB%AD%E8%B4%B9"><span class="toc-text">Leetcode-714.买卖股票的最佳时机含手续费</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%EF%BC%9A"><span class="toc-text">动态规划：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%90%8E%E8%AE%B0%EF%BC%9A"><span class="toc-text">后记：</span></a></li></ol></li></ol>
 </div>
     
 </div>
@@ -136,11 +136,11 @@
 
 <div class="post-container">
     <div class="post-title">
-        c
+        【每日一题】买卖股票的最佳时机含手续费
     </div>
 
     <div class="post-meta">
-        <span class="attr">发布于：<span>2023-10-02 20:26:41</span></span>
+        <span class="attr">发布于：<span>2023-10-06 17:03:38</span></span>
         
         <span class="attr">标签：/
         
@@ -154,11 +154,10 @@
 </span>
     </div>
     <div class="post-content ">
-        <h1 id="Leetcode-122-买卖股票的最佳时机II"><a href="#Leetcode-122-买卖股票的最佳时机II" class="headerlink" title="Leetcode-122.买卖股票的最佳时机II"></a>Leetcode-122.<a target="_blank" rel="noopener" href="https://leetcode.cn/problems/best-time-to-buy-and-sell-stock-ii/?envType=daily-question&envId=2023-10-02">买卖股票的最佳时机II</a></h1><p>这道题与昨天的<a target="_blank" rel="noopener" href="https://leetcode.cn/problems/best-time-to-buy-and-sell-stock/description/">这道题</a>有点相似，只是规定了可以多次购买来达到最大值。</p>
-<h2 id="动态规划："><a href="#动态规划：" class="headerlink" title="动态规划："></a>动态规划：</h2><p>这个解法是我根据官方的解析来写的，自己的解法后面再来写。在某一天我们只有可能有两个情况1.手上有股票2.手上没有股票。设dp[i][0]表示第i天手上没有股票的情况，设dp[i][1]表示第i天有股票的情况.那dp[i][0]又怎么计算得呢？<br><br>dp[i][0]是由前一天的情况得到的，如果前一天也没有股票（即dp[i-1][0]）那说明没有交易，如果前一天有股票，说明前一天有股票但第今天卖出了,所以要加上今天卖出的票（即dp[i-1][1]+price[i]）;所以dp[i][0]&#x3D;max{dp[i−1][0],dp[i−1][1]+prices[i]}<br><br>考虑dp[i][1]，dp[i][1]也是由前一天的情况得到的，如果前一天没有股票那说明今天买入股票（dp[i−1][0]−prices[i]），如果前一天有股票，说明今天没有交易,所以利息保持不变（即dp[i-1][1]）;所以dp[i][1]&#x3D;max{dp[i−1][1],dp[i−1][0]−prices[i]}<br></p>
-<h2 id="贪心："><a href="#贪心：" class="headerlink" title="贪心："></a>贪心：</h2><p>关于这一点可以看看我<a target="_blank" rel="noopener" href="http://lqlblog.cn/2023/10/01/algorithm-6/">昨天写的题解</a>;在我写的时候发现中间过程并不会影响最大值，即1-&gt;9与1-&gt;4-&gt;3-&gt;9得到的结果是一样的。所以我们要得到最大值就需要取得所有的利息。<br><br>代码：</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">maxProfit</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; prices)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> res = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt; prices.<span class="built_in">size</span>();i++) &#123;</span><br><span class="line">            <span class="keyword">if</span>(prices[i]-prices[i<span class="number">-1</span>] &gt; <span class="number">0</span>) &#123;res += (prices[i]-prices[i<span class="number">-1</span>]);&#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<h2 id="后记："><a href="#后记：" class="headerlink" title="后记："></a>后记：</h2><p>昨天写的时候就感觉怪怪的，没想到今天用到了。这里猜一下<a target="_blank" rel="noopener" href="https://leetcode.cn/problems/best-time-to-buy-and-sell-stock-iii/">明天的题</a>。</p>
+        <h1 id="Leetcode-714-买卖股票的最佳时机含手续费"><a href="#Leetcode-714-买卖股票的最佳时机含手续费" class="headerlink" title="Leetcode-714.买卖股票的最佳时机含手续费"></a>Leetcode-714.<a target="_blank" rel="noopener" href="https://leetcode.cn/problems/best-time-to-buy-and-sell-stock-with-transaction-fee/">买卖股票的最佳时机含手续费</a></h1><p>这道题与<a target="_blank" rel="noopener" href="https://leetcode.cn/problems/best-time-to-buy-and-sell-stock-ii/?envType=daily-question&envId=2023-10-02">这道题：买卖股票的最佳时机II</a>相似，只是多了一个手续费。</p>
+<h2 id="动态规划："><a href="#动态规划：" class="headerlink" title="动态规划："></a>动态规划：</h2><p>经过了前几天的洗礼相信这个动态规划应该很简单了吧。只是当在第i天卖出的时候加上的减去fee即可：<br>代码：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">maxProfit</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; prices, <span class="type">int</span> fee)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> res = <span class="number">0</span>;</span><br><span class="line">        <span class="type">int</span> buy[prices.<span class="built_in">size</span>()];</span><br><span class="line">        <span class="type">int</span> sell[prices.<span class="built_in">size</span>()];</span><br><span class="line">        buy[<span class="number">0</span>] = -prices[<span class="number">0</span>];</span><br><span class="line">        sell[<span class="number">0</span>] = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span> ; i &lt; prices.<span class="built_in">size</span>();i++) &#123;</span><br><span class="line">            buy[i] = <span class="built_in">max</span>(sell[i<span class="number">-1</span>]-prices[i],buy[i<span class="number">-1</span>]);</span><br><span class="line">            sell[i] = <span class="built_in">max</span>(buy[i<span class="number">-1</span>]+prices[i]-fee,sell[i<span class="number">-1</span>]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> sell[prices.<span class="built_in">size</span>()<span class="number">-1</span>];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="后记："><a href="#后记：" class="headerlink" title="后记："></a>后记：</h2><p>明天国庆最后一天了，猜一下最后一天的<a target="_blank" rel="noopener" href="https://leetcode.cn/problems/number-of-smooth-descent-periods-of-a-stock/description/">题目</a>;</p>
 
         
         <br />
