@@ -1,394 +1,182 @@
-<!DOCTYPE html>
-<html lang=zh-CN>
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta property="og:description" content="coding makes me happy">
-    <meta property="og:type" content="website">
-    <meta name="description" content="coding makes me happy">
-    <meta name="keyword"  content="">
-    <link rel="shortcut icon" href="/img/favicon.ico">
-
-    <title>
-        
-        KyLin&#39;s Blog
-        
-    </title>
-
-    <!-- Custom CSS -->
+<!DOCTYPE html><html lang="zh" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Hexo - Stick with something</title><meta name="author" content="一只又菜又焦虑的dog(❁´◡`❁)"><meta name="copyright" content="一只又菜又焦虑的dog(❁´◡`❁)"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="coding makes me happy">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="https://leokylin.github.io/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="coding makes me happy">
+<meta property="og:locale">
+<meta property="og:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png">
+<meta property="article:author" content="一只又菜又焦虑的dog(❁´◡&#96;❁)">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://leokylin.github.io/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy Successful',
+    error: 'Copy Error',
+    noSupport: 'Browser Not Supported'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just now',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: 'Load More'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Hexo',
+  isPost: false,
+  isHome: true,
+  isHighlightShrink: false,
+  isToc: false,
+  postUpdate: '2023-10-21 14:07:20'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
     
-<link rel="stylesheet" href="/css/aircloud.css">
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
 
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
     
-<link rel="stylesheet" href="/css/gitment.css">
-
-    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
-    <link href="//at.alicdn.com/t/font_620856_28hi1hpxx24.css" rel="stylesheet" type="text/css">
-    <!-- ga & ba script hoook -->
-    <script></script>
-
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
     
-
-
-
-
-
-
-
-
-
-<meta name="generator" content="Hexo 6.3.0"></head>
-
-<body>
-
-<div class="site-nav-toggle" id="site-nav-toggle">
-    <button>
-        <span class="btn-bar"></span>
-        <span class="btn-bar"></span>
-        <span class="btn-bar"></span>
-    </button>
-</div>
-
-<div class="index-about">
-    <i> Stick with something </i>
-</div>
-
-<div class="index-container">
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
     
-    <div class="index-left">
-        
-<div class="nav" id="nav">
-    <div class="avatar-name">
-        <div class="avatar ">
-            <img src="/img/avatar.jpg" />
-        </div>
-        <div class="name">
-            <i>一只又菜又焦虑的dog(❁´◡`❁)</i>
-        </div>
-    </div>
-    <div class="contents" id="nav-content">
-        <ul>
-            <li  class=active >
-                <a href="/">
-                    <i class="iconfont icon-shouye1"></i>
-                    <span>主页</span>
-                </a>
-            </li>
-            <li >
-                <a href="/tags">
-                    <i class="iconfont icon-biaoqian1"></i>
-                    <span>标签</span>
-                </a>
-            </li>
-            <li >
-                <a href="/archives">
-                    <i class="iconfont icon-guidang2"></i>
-                    <span>存档</span>
-                </a>
-            </li>
-            <li >
-                <a href="/collect/">
-                    <i class="iconfont icon-shoucang1"></i>
-                    <span>收藏</span>
-                </a>
-            </li>
-            <li >
-                <a href="/about/">
-                    <i class="iconfont icon-guanyu2"></i>
-                    <span>关于</span>
-                </a>
-            </li>
-            
-        </ul>
-    </div>
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
     
-</div>
-
-
-<div class="search-field" id="search-field">
-    <div class="search-bg" id="search-bg"></div>
-    <div class="search-container">
-        <div class="search-input">
-            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
-            <input id="search-input"/>
-            <span id="begin-search">搜索</span>
-        </div>
-        <div class="search-result-container" id="search-result-container">
-
-        </div>
-    </div>
-</div>
-
-        <div class="index-about-mobile">
-            <i> Stick with something </i>
-        </div>
-    </div>
-    
-    <div class="index-middle">
-        <!-- Main Content -->
-        
-<div class="post-preview-container" style="min-height: 720px">
-    
-    <div class="post-preview">
-        <div class="post-time">2023-10-07</div>
-        <div class="post-info">
-            <a href="https://leokylin.github.io/2023/10/07/algorithm-12/">
-                <h3>
-                    【每日一题】买卖股票的最佳时机含手续费
-                </h3>
-            </a>
-            <p>
-                
-                <span>/</span>
-                
-                <a class="tag" href="/tags/#leetcode" title="leetcode">leetcode</a>
-                <span>/</span>
-                
-                
-            </p>
-        </div>
-    </div>
-    
-    <div class="post-preview">
-        <div class="post-time">2023-10-06</div>
-        <div class="post-info">
-            <a href="https://leokylin.github.io/2023/10/06/algorithm-11/">
-                <h3>
-                    【每日一题】买卖股票的最佳时机含手续费
-                </h3>
-            </a>
-            <p>
-                
-                <span>/</span>
-                
-                <a class="tag" href="/tags/#leetcode" title="leetcode">leetcode</a>
-                <span>/</span>
-                
-                
-            </p>
-        </div>
-    </div>
-    
-    <div class="post-preview">
-        <div class="post-time">2023-10-05</div>
-        <div class="post-info">
-            <a href="https://leokylin.github.io/2023/10/05/algorithm-10/">
-                <h3>
-                    【每日一题】买卖股票的最佳时机含冷冻期
-                </h3>
-            </a>
-            <p>
-                
-                <span>/</span>
-                
-                <a class="tag" href="/tags/#leetcode" title="leetcode">leetcode</a>
-                <span>/</span>
-                
-                
-            </p>
-        </div>
-    </div>
-    
-    <div class="post-preview">
-        <div class="post-time">2023-10-04</div>
-        <div class="post-info">
-            <a href="https://leokylin.github.io/2023/10/04/algorithm-9/">
-                <h3>
-                    【每日一题】买卖股票的最佳时机IV
-                </h3>
-            </a>
-            <p>
-                
-                <span>/</span>
-                
-                <a class="tag" href="/tags/#leetcode" title="leetcode">leetcode</a>
-                <span>/</span>
-                
-                
-            </p>
-        </div>
-    </div>
-    
-    <div class="post-preview">
-        <div class="post-time">2023-10-03</div>
-        <div class="post-info">
-            <a href="https://leokylin.github.io/2023/10/03/algorithm-8/">
-                <h3>
-                    【每日一题】买卖股票的最佳时机III
-                </h3>
-            </a>
-            <p>
-                
-                <span>/</span>
-                
-                <a class="tag" href="/tags/#leetcode" title="leetcode">leetcode</a>
-                <span>/</span>
-                
-                
-            </p>
-        </div>
-    </div>
-    
-    <div class="post-preview">
-        <div class="post-time">2023-10-02</div>
-        <div class="post-info">
-            <a href="https://leokylin.github.io/2023/10/02/algorithm-7/">
-                <h3>
-                    c
-                </h3>
-            </a>
-            <p>
-                
-                <span>/</span>
-                
-                <a class="tag" href="/tags/#leetcode" title="leetcode">leetcode</a>
-                <span>/</span>
-                
-                
-            </p>
-        </div>
-    </div>
-    
-    <div class="post-preview">
-        <div class="post-time">2023-10-01</div>
-        <div class="post-info">
-            <a href="https://leokylin.github.io/2023/10/01/algorithm-6/">
-                <h3>
-                    【每日一题】买卖股票的最佳时机
-                </h3>
-            </a>
-            <p>
-                
-                <span>/</span>
-                
-                <a class="tag" href="/tags/#leetcode" title="leetcode">leetcode</a>
-                <span>/</span>
-                
-                
-            </p>
-        </div>
-    </div>
-    
-    <div class="post-preview">
-        <div class="post-time">2023-09-30</div>
-        <div class="post-info">
-            <a href="https://leokylin.github.io/2023/09/30/algorithm-5/">
-                <h3>
-                    【每日一题】全部开花的最早一天
-                </h3>
-            </a>
-            <p>
-                
-                <span>/</span>
-                
-                <a class="tag" href="/tags/#leetcode" title="leetcode">leetcode</a>
-                <span>/</span>
-                
-                
-            </p>
-        </div>
-    </div>
-    
-    <div class="post-preview">
-        <div class="post-time">2023-09-29</div>
-        <div class="post-info">
-            <a href="https://leokylin.github.io/2023/09/29/algorithm-4/">
-                <h3>
-                    【每日一题】种花问题
-                </h3>
-            </a>
-            <p>
-                
-                <span>/</span>
-                
-                <a class="tag" href="/tags/#leetcode" title="leetcode">leetcode</a>
-                <span>/</span>
-                
-                
-            </p>
-        </div>
-    </div>
-    
-    <div class="post-preview">
-        <div class="post-time">2023-09-29</div>
-        <div class="post-info">
-            <a href="https://leokylin.github.io/2023/09/29/algorithm-3/">
-                <h3>
-                    【每日一题】花期内花的数目
-                </h3>
-            </a>
-            <p>
-                
-                <span>/</span>
-                
-                <a class="tag" href="/tags/#leetcode" title="leetcode">leetcode</a>
-                <span>/</span>
-                
-                
-            </p>
-        </div>
-    </div>
-    
-</div>
-<ul class="pager">
-    
-    
-    <li class="next">
-        <a href="/page/2/">Older Posts &rarr;</a>
-    </li>
-    
-</ul>
-
-    </div>
-</div>
-
-
-<footer class="footer">
-    <ul class="list-inline text-center">
-        
-        
-
-        
-
-        
-
-        
-
-        
-
-    </ul>
-    
-    <p>
-        <span id="busuanzi_container_site_pv">
-            <span id="busuanzi_value_site_pv"></span>PV
-        </span>
-        <span id="busuanzi_container_site_uv">
-            <span id="busuanzi_value_site_uv"></span>UV
-        </span>
-        Created By <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>  Theme <a target="_blank" rel="noopener" href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
-</footer>
-
-
-
-
-</body>
-
-<script>
-    // We expose some of the variables needed by the front end
-    window.hexo_search_path = ""
-    window.hexo_root = "/"
-    window.isPost = false
-</script>
-<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
-
-<script src="/js/index.js"></script>
-
-<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-
-
-
-
-
-
-</html>
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">14</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">1</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><hr class="custom-hr"/></div></div><div class="page" id="body-wrap"><header class="full_page" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Hexo"><span class="site-name">Hexo</span></a></span><div id="menus"><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="site-info"><h1 id="site-title">Hexo</h1></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2023/10/07/algorithm-12/" title="【每日一题】买卖股票的最佳时机含手续费">【每日一题】买卖股票的最佳时机含手续费</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-10-07T12:39:59.000Z" title="Created 2023-10-07 20:39:59">2023-10-07</time></span></div><div class="content">Leetcode-901.股票价格跨度题意理解：就是找到最近的比今天大的数，计算距离。
+单调栈：用一个栈来保存每一天的股票价格。栈中的元素是pair&lt;index,price&gt;。即当天的价格与对应第几天。当我们遇到比自己小或相等的元素时弹出栈直到遇到比自己大的元素。用当前的天数i减去栈顶元素对应的天数得到结果，将当前元素入栈。代码：
+12345678910111213141516171819class StockSpanner&#123;public:    stack&lt;pair&lt;int, int &gt;&gt; stack;    int index = -1;    StockSpanner() &#123;        stack.emplace(-1,99999);    &#125;    int next(int price) &#123;        index++;        while (stack.top().second&lt;= price) &#123;            stack.pop();        &#125; ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2023/10/06/algorithm-11/" title="【每日一题】买卖股票的最佳时机含手续费">【每日一题】买卖股票的最佳时机含手续费</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-10-06T09:03:38.000Z" title="Created 2023-10-06 17:03:38">2023-10-06</time></span></div><div class="content">Leetcode-714.买卖股票的最佳时机含手续费这道题与这道题：买卖股票的最佳时机II相似，只是多了一个手续费。
+动态规划：经过了前几天的洗礼相信这个动态规划应该很简单了吧。只是当在第i天卖出的时候加上的减去fee即可：代码：
+123456789101112131415class Solution &#123;public:    int maxProfit(vector&lt;int&gt;&amp; prices, int fee) &#123;        int res = 0;        int buy[prices.size()];        int sell[prices.size()];        buy[0] = -prices[0];        sell[0] = 0;        for(int i = 1 ; i &lt; prices.size();i++) &#123;            buy[i] = max(sell[i-1]-prices[i],buy[i-1]);            sell[i] = max(buy ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2023/10/05/algorithm-10/" title="【每日一题】买卖股票的最佳时机含冷冻期">【每日一题】买卖股票的最佳时机含冷冻期</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-10-05T09:36:36.000Z" title="Created 2023-10-05 17:36:36">2023-10-05</time></span></div><div class="content">Leetcode-309.买卖股票的最佳时机含冷冻期这道题在昨天的这道题之上做了一些修改,规定了卖出了一次股票后要等一天才能再次购买.具体可以看一下昨天的题解，
+动态规划：同样的想到动态规划
+1234可以看出有一下这些状态：到第i天手里有一只股票；（设为dp[i][0]）到第i天手里没有股票且不在冷却期；（设为dp[i][1]）到第i天手里没有股票且在冷却期；（设为dp[i][2]）
+对于第一种状态：手里有一支股票，可以由两种情况得到：
+1231.第i天没买入股票，说明在前i-1天买入了股票2.第i-1天没股票，说明在第i天买入股票；所以 dp[i][0] = max(dp[i-1][0],dp[i-1][1]-price[i]);
+对于第二种状态：手里没有股票，且不在冷却期,可以由两种情况得到：
+1231.第i-1天也不在冷却期手里没有股票2.第i-1天在冷却期手里没有股票；所以 dp[i][1] = max(dp[i-1][1],dp[i-1][2]);
+对于第三种状态：手里没有股票，在冷却期,只可能由一种情况得到：
+121.在第i-1天进行了交易；dp[i][2] = max(d ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2023/10/04/algorithm-9/" title="【每日一题】买卖股票的最佳时机IV">【每日一题】买卖股票的最佳时机IV</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-10-04T15:23:21.000Z" title="Created 2023-10-04 23:23:21">2023-10-04</time></span></div><div class="content">Leetcode-188.买卖股票的最佳时机IV这道题与昨天的Leetcode-122.买卖股票的最佳时机III相似，可以看看昨天的这个题解;题目与昨天的相似，只不过这次不固定次数，而是根据给出的k来判断。
+动态规划：先来看看昨天的题目状态转化：
+12341.买了第一支股票（x1） x1 = max(x1, -prices[i]);2.卖出第一支股票 (y1)  y1 = max(y1, x1 + prices[i]);3.买入第二支股票 (x2)  x2 = max(x2, y1 - prices[i]);4.卖出第二支股票 (y2)  y2 = max(y2, x2 + prices[i]);
+可以看到这里的x1,y1,x2,y2都与之前的状态有关；这里自然想到动态规划，一步一步递推。那我们怎么表示各个状态呢？我是想到了最经典的动态规划问题：01背包；我们用buy[i][j]来表示在有i支股票可选且第j次买入股票后的最优解；用sell[i][j]来表示在有i支股票可选且第j次卖出股票后的最优解；（这里的i,j是不是有点像背包问题中的有i个物品，j重量的情况）
+1234567//bu ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2023/10/03/algorithm-8/" title="【每日一题】买卖股票的最佳时机III">【每日一题】买卖股票的最佳时机III</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-10-03T13:03:12.000Z" title="Created 2023-10-03 21:03:12">2023-10-03</time></span></div><div class="content">Leetcode-122.买卖股票的最佳时机III与昨天的这道题相似，只是要求最多只能进行两次交易。
+动态规划：可知一共有四种状态：
+12341.买了第一支股票（x1）2.卖出第一支股票 (y1)3.买入第二支股票 (x2)4.卖出第二支股票 (y2)
+赋初值，x1 &#x3D; -price[0] ; x2 &#x3D; -price[0] ; y1 &#x3D; 0 ; y2 &#x3D; 0 ;对于x1,这一天的票价比之前的高不卖出，也可能找到票价更低的股票；故x1 &#x3D; max(x1,-price[i]);对于y1,这一天可能卖出的价格更低，即不卖出;或者这一天票价更高要卖出y1 &#x3D; max(y1,x1++price[i]);对于x2,这一天的票价比之前的高不卖出，也可能找到票价更低的股票；故x2 &#x3D; max(x2,y1-price[i]);对于x2,这一天可能卖出的价格更低，即不卖出;或者这一天票价更高要卖出y2 &#x3D; max(y2,x2+price[i]);代码：
+123456789101112131415class Solution & ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2023/10/02/algorithm-7/" title="c">c</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-10-02T12:26:41.000Z" title="Created 2023-10-02 20:26:41">2023-10-02</time></span></div><div class="content">Leetcode-122.买卖股票的最佳时机II这道题与昨天的这道题有点相似，只是规定了可以多次购买来达到最大值。
+动态规划：这个解法是我根据官方的解析来写的，自己的解法后面再来写。在某一天我们只有可能有两个情况1.手上有股票2.手上没有股票。设dp[i][0]表示第i天手上没有股票的情况，设dp[i][1]表示第i天有股票的情况.那dp[i][0]又怎么计算得呢？dp[i][0]是由前一天的情况得到的，如果前一天也没有股票（即dp[i-1][0]）那说明没有交易，如果前一天有股票，说明前一天有股票但第今天卖出了,所以要加上今天卖出的票（即dp[i-1][1]+price[i]）;所以dp[i][0]&#x3D;max{dp[i−1][0],dp[i−1][1]+prices[i]}考虑dp[i][1]，dp[i][1]也是由前一天的情况得到的，如果前一天没有股票那说明今天买入股票（dp[i−1][0]−prices[i]），如果前一天有股票，说明今天没有交易,所以利息保持不变（即dp[i-1][1]）;所以dp[i][1]&#x3D;max{dp[i−1][1],dp[i−1][0] ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2023/10/01/algorithm-6/" title="【每日一题】买卖股票的最佳时机">【每日一题】买卖股票的最佳时机</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-10-01T14:01:29.000Z" title="Created 2023-10-01 22:01:29">2023-10-01</time></span></div><div class="content">Leetcode-121.买卖股票的最佳时机分析一下题意：给出一堆数据表示票价，找一个日期买入股票，之后再找一个日期卖出股票。
+一遍扫描法：要让股票的收益最大应该在尽可能低的时候买入，高的时候卖出。所以我们自然想到用双指针，一个指向最小值，一个指向当前值，不断做差保留差的最大值做结果，同时更新最小值
+123456789101112class Solution &#123;public:    int maxProfit(vector&lt;int&gt;&amp; prices) &#123;      int minprice = 99999;      int res = 0;      for(int price:prices) &#123;        minprice = min(minprice,price);        res = max(res,price - minprice);      &#125;      return res;    &#125;&#125;;
+一些自己的思考（没啥用，瞎想的）：由图中的计算可知1到6要经过5，3。经过了4(5-1)，- ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2023/09/30/algorithm-5/" title="【每日一题】全部开花的最早一天">【每日一题】全部开花的最早一天</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-09-30T13:30:11.000Z" title="Created 2023-09-30 21:30:11">2023-09-30</time></span></div><div class="content">Leetcode-2136. 全部开花的最早一天</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2023/09/29/algorithm-4/" title="【每日一题】种花问题">【每日一题】种花问题</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-09-29T09:29:59.000Z" title="Created 2023-09-29 17:29:59">2023-09-29</time></span></div><div class="content">Leetcode-605. 种花问题简单分析一下题意，给定一个数组（flowers）与给定的要操作的次数（n）,只有当当前位置周围都没有花时才能往这个地方插入花，如：
+123输入：flowerbed = [1,0,0,0,1], n = 1输出：true我们可以往flowers[2]这个位置插入花来满足题意
+扫描法：很容易可知，我们要判断的就只是三个格子的情况。我们以i为插入点，那么只需要判断i+1与i-1这两处下标是否有花，如果都为0，说明可以插。于是有：
+1if (flowerbed[i] == 0 &amp;&amp; flowerbed[i - 1] == 0 &amp;&amp; flowerbed[i + 1] == 0)
+但这样的话开头与结尾会出现越界的问题。我们可以扩展数组的范围：在给定的数组的开头与结尾加入0，在插花的时候不管这俩个元素，只是在判断的时候使用，0[0,0,0]0,这样在边界的时候我们也可以用上述判断方法。
+123456789101112131415161718class Solution &#123;public:    bool canPlaceFl ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2023/09/29/algorithm-3/" title="【每日一题】花期内花的数目">【每日一题】花期内花的数目</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2023-09-29T09:28:11.000Z" title="Created 2023-09-29 17:28:11">2023-09-29</time></span></div><div class="content">Leetcode-2251. 花期内花的数目</div></div></div><nav id="pagination"><div class="pagination"><span class="page-number current">1</span><a class="page-number" href="/page/2/#content-inner">2</a><a class="extend next" rel="next" href="/page/2/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">一只又菜又焦虑的dog(❁´◡`❁)</div><div class="author-info__description">coding makes me happy</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">14</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">1</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/10/07/algorithm-12/" title="【每日一题】买卖股票的最佳时机含手续费">【每日一题】买卖股票的最佳时机含手续费</a><time datetime="2023-10-07T12:39:59.000Z" title="Created 2023-10-07 20:39:59">2023-10-07</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/10/06/algorithm-11/" title="【每日一题】买卖股票的最佳时机含手续费">【每日一题】买卖股票的最佳时机含手续费</a><time datetime="2023-10-06T09:03:38.000Z" title="Created 2023-10-06 17:03:38">2023-10-06</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/10/05/algorithm-10/" title="【每日一题】买卖股票的最佳时机含冷冻期">【每日一题】买卖股票的最佳时机含冷冻期</a><time datetime="2023-10-05T09:36:36.000Z" title="Created 2023-10-05 17:36:36">2023-10-05</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/10/04/algorithm-9/" title="【每日一题】买卖股票的最佳时机IV">【每日一题】买卖股票的最佳时机IV</a><time datetime="2023-10-04T15:23:21.000Z" title="Created 2023-10-04 23:23:21">2023-10-04</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/10/03/algorithm-8/" title="【每日一题】买卖股票的最佳时机III">【每日一题】买卖股票的最佳时机III</a><time datetime="2023-10-03T13:03:12.000Z" title="Created 2023-10-03 21:03:12">2023-10-03</time></div></div></div></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>Tags</span></div><div class="card-tag-cloud"><a href="/tags/leetcode/" style="font-size: 1.1em; color: #999">leetcode</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>Archives</span></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/10/"><span class="card-archive-list-date">October 2023</span><span class="card-archive-list-count">7</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/09/"><span class="card-archive-list-date">September 2023</span><span class="card-archive-list-count">6</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/08/"><span class="card-archive-list-date">August 2023</span><span class="card-archive-list-count">1</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>Info</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">Article :</div><div class="item-count">14</div></div><div class="webinfo-item"><div class="item-name">UV :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">PV :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">Last Update :</div><div class="item-count" id="last-push-date" data-lastPushDate="2023-10-21T06:07:20.351Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By 一只又菜又焦虑的dog(❁´◡`❁)</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="Toggle Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between Single-column and Double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
