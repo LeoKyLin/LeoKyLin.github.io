@@ -1,0 +1,174 @@
+<!DOCTYPE html><html lang="zh" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>2.默认和删除函数 | Hexo</title><meta name="author" content="一只又菜又焦虑的dog(❁´◡`❁)"><meta name="copyright" content="一只又菜又焦虑的dog(❁´◡`❁)"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="默认和删除函数类的特殊成员函数在定义一个类的时候如果没有自定义的构造函数，编译器会为类添加默认的构造函数。像这样有特殊待遇的成员函数一共有6个1．默认构造函数。2．析构函数。3．复制构造函数。4．复制赋值运算符函数。5．移动构造函数（C++11新增）。6．移动赋值运算符函数（C++11新增）。 123456789class City &amp;#123;    std::string name;    s">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2.默认和删除函数">
+<meta property="og:url" content="https://leokylin.github.io/2023/10/25/modern-cpp-1/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="默认和删除函数类的特殊成员函数在定义一个类的时候如果没有自定义的构造函数，编译器会为类添加默认的构造函数。像这样有特殊待遇的成员函数一共有6个1．默认构造函数。2．析构函数。3．复制构造函数。4．复制赋值运算符函数。5．移动构造函数（C++11新增）。6．移动赋值运算符函数（C++11新增）。 123456789class City &amp;#123;    std::string name;    s">
+<meta property="og:locale">
+<meta property="og:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png">
+<meta property="article:published_time" content="2023-10-25T10:23:17.000Z">
+<meta property="article:modified_time" content="2023-10-25T11:16:22.735Z">
+<meta property="article:author" content="一只又菜又焦虑的dog(❁´◡&#96;❁)">
+<meta property="article:tag" content="现代c++">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://leokylin.github.io/2023/10/25/modern-cpp-1/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy Successful',
+    error: 'Copy Error',
+    noSupport: 'Browser Not Supported'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just now',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: 'Load More'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '2.默认和删除函数',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-10-25 19:16:22'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">18</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">3</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Hexo"><span class="site-name">Hexo</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">2.默认和删除函数</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2023-10-25T10:23:17.000Z" title="Created 2023-10-25 18:23:17">2023-10-25</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2023-10-25T11:16:22.735Z" title="Updated 2023-10-25 19:16:22">2023-10-25</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="2.默认和删除函数"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post Views:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="默认和删除函数"><a href="#默认和删除函数" class="headerlink" title="默认和删除函数"></a>默认和删除函数</h1><h2 id="类的特殊成员函数"><a href="#类的特殊成员函数" class="headerlink" title="类的特殊成员函数"></a>类的特殊成员函数</h2><p>在定义一个类的时候如果没有自定义的构造函数，编译器会为类添加默认的构造函数。像这样有特殊待遇的成员函数一共有6个<br><br>1．默认构造函数。<br><br>2．析构函数。<br><br>3．复制构造函数。<br><br>4．复制赋值运算符函数。<br><br>5．移动构造函数（C++11新增）。<br><br>6．移动赋值运算符函数（C++11新增）。<br></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">City</span> &#123;</span><br><span class="line">    std::string name;</span><br><span class="line">    std::vector&lt;std::string&gt; street_name;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    City a, b;</span><br><span class="line">    a = b;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在上面的代码中，我们虽然没有为City类添加复制赋值运算符函数City:: operator&#x3D; (const City &amp;)，但是编译器仍然可以成功编译代码，并且在运行过程中正确地调用std::string和std::vector<a href="std::string">std::string</a>的复制赋值运算符函数.但当我们自定义了一个构造函数，默认的构造函数就会消失。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">City</span>(<span class="type">const</span> <span class="type">char</span> *n) : <span class="built_in">name</span>(n) &#123;&#125;</span><br><span class="line">City a,b<span class="comment">//报错，没有合适的构造函数</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">City</span>() :&#123;&#125; </span><br><span class="line">City a,b<span class="comment">//添加了新的构造函数，可以通过编译</span></span><br></pre></td></tr></table></figure>
+<p>有时候，为了让类不可复制，我们可以用privatet修饰构造函数或是noncopyable类辅助我们完成禁止复制的需求。但这样也有一些不完善的情况，友元就能够在编译阶段破坏类对复制的禁止。还有一个例子：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Base</span> &#123;</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">foo</span><span class="params">(<span class="type">long</span> &amp;)</span></span>;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">foo</span><span class="params">(<span class="type">int</span>)</span> </span>&#123;&#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Derived</span> : <span class="keyword">public</span> Base &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="keyword">using</span> Base::foo;</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">foo</span><span class="params">(<span class="type">const</span> <span class="type">char</span> *)</span> </span>&#123;&#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    Derived d;</span><br><span class="line">    d.<span class="built_in">foo</span>(<span class="string">&quot;hello&quot;</span>);</span><br><span class="line">    d.<span class="built_in">foo</span>(<span class="number">5</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这里我们不想让子类得到父类void foo(long &amp;)函数，将它设置为private.编译这段代码会在“d.foo(5)”出现错误，因为using只会引入非private的函数到子类中去。注释掉d.foo(5)也不行;</p>
+<h2 id="显示删除和显示默认"><a href="#显示删除和显示默认" class="headerlink" title="显示删除和显示默认"></a>显示删除和显示默认</h2><p>为了能简单的控制特殊成员函数的添加和删除。需要在声明函数的尾部&#x3D;default和&#x3D;delete,它们表示添加特殊函数的默认版本和删除指定函数.</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// type.h</span></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">type</span> &#123;</span><br><span class="line">    <span class="built_in">type</span>() = <span class="keyword">default</span>; <span class="comment">//添加默认析构函数</span></span><br><span class="line">     ~<span class="built_in">type</span>() = <span class="keyword">delete</span>;<span class="comment">//删除析构函数</span></span><br><span class="line">     <span class="built_in">type</span>(<span class="type">const</span> type &amp;);<span class="comment">//添加复制构造函数</span></span><br><span class="line">    <span class="type">int</span> x;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>而对于删除特殊函数来说，&#x3D;delete比private更加彻底，它从编译层面上抑制了函数的生成，所以无论调用者是什么身份（包括类的成员函数），都无法调用被删除的函数。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">City:: <span class="keyword">operator</span>= (<span class="type">const</span> City &amp;) = <span class="keyword">delete</span>; <span class="comment">// 显式删除复制赋值</span></span><br><span class="line">City a, b;</span><br><span class="line">a = b;<span class="comment">//报错，复制构造函数已经被删除，比private更加彻底</span></span><br></pre></td></tr></table></figure>
+<p>对于刚刚这段代码,修改后就不会出现这个错误了。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Base</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">foo</span><span class="params">(<span class="type">long</span> &amp;)</span> </span>= <span class="keyword">delete</span>;<span class="comment">//加上delete,移动到public</span></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">foo</span><span class="params">(<span class="type">int</span>)</span> </span>&#123;&#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Derived</span> : <span class="keyword">public</span> Base &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="keyword">using</span> Base::foo;</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">foo</span><span class="params">(<span class="type">const</span> <span class="type">char</span> *)</span> </span>&#123;&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="显示删除的其他用法"><a href="#显示删除的其他用法" class="headerlink" title="显示删除的其他用法"></a>显示删除的其他用法</h2><p>此外，显示删除还可以删除new运算符，以阻止在堆中动态创建对象，换句话说，只能通过自动变量，静态变量和全局变量的方式创建。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">type</span></span><br><span class="line">&#123;</span><br><span class="line"><span class="function"><span class="type">void</span> * <span class="keyword">operator</span> <span class="title">new</span><span class="params">(std::<span class="type">size_t</span>)</span> </span>= <span class="keyword">delete</span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">type *var_ptr = <span class="keyword">new</span> type; <span class="comment">// 编译失败，该类的new已被删除</span></span><br></pre></td></tr></table></figure>
+<p>而delete的作用正好相反，它阻止类通过自动变量、静态变量或者全局变量的方式创建对象，但是却可以通过new运算符创建对象。原因是删除析构函数后，类无法进行析构。所以像自动变量、静态变量或者全局变量这种会隐式调用析构函数的对象就无法创建了，当然了，通过new运算符创建的对象也无法通过delete销毁，</p>
+<h2 id="explicit和-delete"><a href="#explicit和-delete" class="headerlink" title="explicit和&#x3D;delete"></a>explicit和&#x3D;delete</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">type</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">type</span>(<span class="type">long</span> <span class="type">long</span>) &#123;&#125;</span><br><span class="line">    <span class="function"><span class="keyword">explicit</span> <span class="title">type</span><span class="params">(<span class="type">long</span>)</span> </span>= <span class="keyword">delete</span>;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">foo</span><span class="params">(type)</span> </span>&#123;&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">foo</span>(<span class="built_in">type</span>(<span class="number">58</span>));</span><br><span class="line">    <span class="built_in">foo</span>(<span class="number">58</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在这里”foo(type(58))”会报错，因为type(58)显示调用了构造函数type(long)，但它已经被删除，而foo(58)不会报错，因为为编译器会选择type(long long)来构造对象。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>Author: </span><span class="post-copyright-info"><a href="https://LeoKyLin.github.io">一只又菜又焦虑的dog(❁´◡`❁)</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>Link: </span><span class="post-copyright-info"><a href="https://leokylin.github.io/2023/10/25/modern-cpp-1/">https://leokylin.github.io/2023/10/25/modern-cpp-1/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E7%8E%B0%E4%BB%A3c/">现代c++</a></div><div class="post_share"><div class="social-share" data-image="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/2023/10/22/leetcode-week/" title="leetcode_week"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Next</div><div class="next_info">leetcode_week</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><div><a href="/2023/10/11/modern-cpp/" title="新基础类型"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-10-11</div><div class="title">新基础类型</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">一只又菜又焦虑的dog(❁´◡`❁)</div><div class="author-info__description">coding makes me happy</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">18</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">3</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Contents</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%BB%98%E8%AE%A4%E5%92%8C%E5%88%A0%E9%99%A4%E5%87%BD%E6%95%B0"><span class="toc-number">1.</span> <span class="toc-text">默认和删除函数</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B1%BB%E7%9A%84%E7%89%B9%E6%AE%8A%E6%88%90%E5%91%98%E5%87%BD%E6%95%B0"><span class="toc-number">1.1.</span> <span class="toc-text">类的特殊成员函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%98%BE%E7%A4%BA%E5%88%A0%E9%99%A4%E5%92%8C%E6%98%BE%E7%A4%BA%E9%BB%98%E8%AE%A4"><span class="toc-number">1.2.</span> <span class="toc-text">显示删除和显示默认</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%98%BE%E7%A4%BA%E5%88%A0%E9%99%A4%E7%9A%84%E5%85%B6%E4%BB%96%E7%94%A8%E6%B3%95"><span class="toc-number">1.3.</span> <span class="toc-text">显示删除的其他用法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#explicit%E5%92%8C-delete"><span class="toc-number">1.4.</span> <span class="toc-text">explicit和&#x3D;delete</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/10/25/modern-cpp-1/" title="2.默认和删除函数">2.默认和删除函数</a><time datetime="2023-10-25T10:23:17.000Z" title="Created 2023-10-25 18:23:17">2023-10-25</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/10/22/leetcode-week/" title="leetcode_week">leetcode_week</a><time datetime="2023-10-22T14:54:34.000Z" title="Created 2023-10-22 22:54:34">2023-10-22</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/10/22/cs144lab0/" title="cs144lab0">cs144lab0</a><time datetime="2023-10-22T08:21:00.000Z" title="Created 2023-10-22 16:21:00">2023-10-22</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/10/11/modern-cpp/" title="新基础类型">新基础类型</a><time datetime="2023-10-11T06:13:16.000Z" title="Created 2023-10-11 14:13:16">2023-10-11</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/10/07/algorithm-12/" title="【每日一题】买卖股票的最佳时机含手续费">【每日一题】买卖股票的最佳时机含手续费</a><time datetime="2023-10-07T12:39:59.000Z" title="Created 2023-10-07 20:39:59">2023-10-07</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By 一只又菜又焦虑的dog(❁´◡`❁)</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Toggle Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between Single-column and Double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
